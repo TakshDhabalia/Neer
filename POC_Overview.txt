@@ -1,0 +1,14 @@
+this doc documents the POC progress 
+this is working on a server client type of system arch. where the server is the main reciever of data for display 
+and the display of all the contents will happen on this 
+
+1. to make the server we are going to make a NODEMCU a server by putting all the HTML in the script and uploading it and then make the server run on a power supply of 5V
+
+2. to make the client we will make a HC-SR04 sensor module sense the data and store it in a temporary variable 
+which will be published on the server side of the script where the end user can access the data in real time with minimal data
+
+alternative - 
+
+if both the MCUs are connected to the wifi (internert ) what we can do is use the MQTT protocol , where the broker and client is connected to a common connection . this can also be on the cloud where the broker can be HIVEMQ and other open cloud providers . 
+
+this can also be used by an app which will be developed in Dart for android.
