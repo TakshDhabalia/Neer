@@ -3,7 +3,6 @@
 // Replace with your network credentials
 const char* ssid = "taksh";
 const char* password = "12345678";
-
 // Set web server port number to 80
 WiFiServer server(80);
 
@@ -67,17 +66,28 @@ void loop() {
             client.println("<!DOCTYPE html><html>");
             client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             client.println("<link rel=\"icon\" href=\"data:,\">");
-            // CSS to style the on/off buttons 
             client.println("<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");
             client.println(".button { background-color: #195B6A; border: none; color: white; padding: 16px 40px;");
             client.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
-            client.println(".button2 {background-color: #77878A;}</style></head>");
+            client.println(".button2 {background-color: #77878A;}</style>");
+            client.println("<script>");
+            client.println("setInterval(function() {");
+            client.println("  var xhttp = new XMLHttpRequest();");
+            client.println("  xhttp.onreadystatechange = function() {");
+            client.println("    if (this.readyState == 4 && this.status == 200) {");
+            client.println("      document.getElementById(\"distance\").innerHTML = this.responseText;");
+            client.println("    }");
+            client.println("  };");
+            client.println("  xhttp.open(\"GET\", \"/distance\", true);");
+            client.println("  xhttp.send();");
+            client.println("}, 1000);"); // Update every 1 second
+            client.println("</script></head>");
             
             // Web Page Heading
             client.println("<body><h1>ESP8266 Web Server</h1>");
             
             // Display the distance
-            client.println("<p>Distance: " + String(distance) + " cm</p>");
+            client.println("<p>Distance: <span id=\"distance\">" + String(distance) + "</span> cm</p>");
             client.println("</body></html>");
             
             // The HTTP response ends with another blank line

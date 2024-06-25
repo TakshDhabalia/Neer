@@ -15,12 +15,17 @@ void setup() {
     while (1);
   }
 
+  // Set up SMS reception
+  enableSMSReception();
+
   // Send an SMS
   sendSMS("+917715958053", "Hello from Arduino Mega");
 }
 
 void loop() {
-  // Nothing to do in the loop
+  if (Serial1.available()) {
+    readSMS();
+  }
 }
 
 bool checkGSMModule() {
@@ -73,4 +78,19 @@ void readResponse() {
     }
   }
   Serial.println("No response from GSM module.");
+}
+
+void enableSMSReception() {
+  Serial1.println("AT+CMGF=1"); // Set the module to SMS mode
+  delay(1000);
+  Serial1.println("AT+CNMI=2,2,0,0,0"); // Configure the module to send received SMS data to the serial port
+  delay(1000);
+}
+
+void readSMS() {
+  if (Serial1.available()) {
+    String message = Serial1.readString();
+    Serial.print("Received Message: ");
+    Serial.println(message);
+  }
 }
