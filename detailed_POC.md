@@ -13,7 +13,7 @@ To create a server-client system where a NodeMCU acts as a server displaying dat
 - NodeMCU (ESP8266)
 - USB cable
 - Power supply (5V)
-
+ 
 #### Steps
 1. **Install Required Libraries**
    - Ensure you have the ESP8266 board package installed in your Arduino IDE.
@@ -41,6 +41,8 @@ To create a server-client system where a NodeMCU acts as a server displaying dat
 - Another NodeMCU (ESP8266)
 - HC-SR04 sensor
 - Jumper wires
+- Power Bank 
+- Breadboard Power Supply 
 
 #### Steps
 1. **Connect the Sensor**
