@@ -5,9 +5,9 @@ This document outlines the detailed steps for creating a server-client system us
 
 **Objective**
 The objective of this project is to establish a robust server-client architecture where:
-- **NodeMCU acts as the server**, receiving and displaying data from an HC-SR04 sensor module.
+- **NodeMCU acts as the server**, receiving and displaying data from an HC-SR04 sensor module which it recieves from the client.
 - **ESP8266 acts as the client**, collecting sensor data and transmitting it to the server using ESP-NOW.
-- Data from the server is sent via Wi-Fi to Thingspeak for storage and further processing through a MIT App Inventor API.
+- Data from the server is sent via Wi-Fi to Thingspeak for storage and further displaying through a MIT App Inventor app.
 
 ## Client Setup
 
