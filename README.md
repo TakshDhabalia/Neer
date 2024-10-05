@@ -1,5 +1,7 @@
 # Proof of Concept (POC) Documentation
+## Block Diagram
 
+![Block Diagram](./Neer_Block_Diagram.drawio.png)
 **Introduction**
 This document outlines the detailed steps for creating a server-client system using NodeMCU and ESP8266 microcontrollers. The system is designed to display data from an HC-SR04 sensor module on the server (NodeMCU) and transmit it to Thingspeak via Wi-Fi, using ESP-NOW for communication between the client and server.
 
